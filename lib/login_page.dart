@@ -1,6 +1,8 @@
 import 'package:easy_app/component/common_button.dart';
+import 'package:easy_app/home_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -44,9 +46,15 @@ class LoginPage extends StatelessWidget {
                         width: 270,
                         height: 40,
                         child: CommonButton(
-                          text: '新規登録する',
-                          onpressed: () {},
-                        ),
+                          text: 'ログイン',
+                          onpressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                            );
+                          },
+                          ),
                       ),
                     ],
                   ),
@@ -81,12 +89,23 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: 270,
                   height: 40,
-                  child: CommonButton(
-                    text: 'Goggleアカウントで続行',
-                    onpressed: () {},
-                    textcolor: Colors.black,
-                    backgroundcolor: Colors.white,
-                  ),
+                  child: SignInButton(
+                      Buttons.google,
+                      text: "Googleでログイン",
+                      onPressed: () {},
+                    )
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                SizedBox(
+                  width: 270,
+                  height: 40,
+                  child:  SignInButton(
+                      Buttons.apple,
+                      text: "appleでログイン",
+                      onPressed: () {},
+                    )
                 ),
                 const SizedBox(
                   height: 12,
@@ -95,20 +114,7 @@ class LoginPage extends StatelessWidget {
                   width: 270,
                   height: 40,
                   child: CommonButton(
-                    text: 'Appleアカウントで続行',
-                    onpressed: () {},
-                    textcolor: Colors.black,
-                    backgroundcolor: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                SizedBox(
-                  width: 270,
-                  height: 40,
-                  child: CommonButton(
-                    text: 'ログイン',
+                    text: '新規登録',
                     onpressed: () {},
                   ),
                 ),
