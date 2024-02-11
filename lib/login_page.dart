@@ -1,6 +1,7 @@
 import 'package:easy_app/component/common_button.dart';
 import 'package:easy_app/component/input_form.dart';
 import 'package:easy_app/home_page.dart';
+import 'package:easy_app/resetting_pass.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_in_button/sign_in_button.dart';
@@ -20,33 +21,35 @@ class LoginPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                  height: 40,
+                  height: 60,
                   width: 340,
                   child: SignInButton(
                     Buttons.google,
                     text: "Googleで続行",
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                     onPressed: () {},
                   )),
               const SizedBox(
                 height: 20,
               ),
               SizedBox(
-                height: 40,
+                height: 60,
                 width: 340,
                 child: SignInButton(
                   Buttons.apple,
                   text: "Appleで続行",
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
                   onPressed: () {},
                 ),
               ),
-              SizedBox(height: 48),
+              const SizedBox(height: 48),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 36),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Container(
@@ -70,43 +73,48 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 48),
-                  Text('メールアドレス'),
-                  SizedBox(height: 12),
-                  InputForm(),
-                  SizedBox(height: 12),
-                  Text('パスワード'),
-                  SizedBox(height: 12),
-                  InputForm(),
-                  SizedBox(height: 60),
-                  CommonButton(
-                    text: 'ログイン',
-                    onpressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage()),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      text: "パスワードの再設定",
-                      style: const TextStyle(color: Colors.blue, fontSize: 16),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 48),
+                      const Text('メールアドレス'),
+                      const SizedBox(height: 12),
+                      const InputForm(),
+                      const SizedBox(height: 12),
+                      const Text('パスワード'),
+                      const SizedBox(height: 12),
+                      const InputForm(),
+                      const SizedBox(height: 60),
+                      CommonButton(
+                        text: 'ログイン',
+                        onpressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LoginPage()),
+                                builder: (context) => const HomePage()),
                           );
                         },
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                    ],
                   ),
                 ],
+              ),
+              RichText(
+                text: TextSpan(
+                  text: "パスワードの再設定",
+                  style: const TextStyle(color: Colors.blue, fontSize: 16),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ResettingPass()),
+                      );
+                    },
+                ),
               ),
             ],
           ),
