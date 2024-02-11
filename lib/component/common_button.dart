@@ -27,7 +27,7 @@ class CommonButton extends StatelessWidget {
             width: 1,
           ),
           foregroundColor: textcolor ?? Colors.white,
-          backgroundColor: backgroundcolor ?? Color(0xFF00617B),
+          backgroundColor: backgroundcolor ?? const Color(0xFF00617B),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         ),
@@ -38,7 +38,7 @@ class CommonButton extends StatelessWidget {
             image != null ? Image.asset(image!) : Container(),
             Text(
               text,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
