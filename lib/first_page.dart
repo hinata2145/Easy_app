@@ -10,14 +10,13 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Container(
+        margin: const EdgeInsets.only(top: 480),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 270,
-                height: 40,
                 child: CommonButton(
                   text: '新規登録',
                   onpressed: () {
@@ -29,7 +28,7 @@ class FirstPage extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 36,
               ),
               Padding(
@@ -59,7 +58,7 @@ class FirstPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               RichText(
                 text: TextSpan(
                   text: "ログイン",
