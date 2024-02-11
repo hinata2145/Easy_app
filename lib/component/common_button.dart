@@ -17,26 +17,31 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        side: const BorderSide(
-          color: Colors.black,
-          width: 1,
-        ),
-        foregroundColor: textcolor ?? Colors.white,
-        backgroundColor: backgroundcolor ?? Colors.black,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      onPressed: onpressed,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          image != null ? Image.asset(image!) : Container(),
-          Text(
-            text,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    return SizedBox(
+      height: 60,
+      width: 340,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          side: const BorderSide(
+            color: Colors.black,
+            width: 1,
           ),
-        ],
+          foregroundColor: textcolor ?? Colors.white,
+          backgroundColor: backgroundcolor ?? Color(0xFF00617B),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        ),
+        onPressed: onpressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            image != null ? Image.asset(image!) : Container(),
+            Text(
+              text,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }
