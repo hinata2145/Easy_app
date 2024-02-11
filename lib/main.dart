@@ -1,5 +1,4 @@
 import 'package:easy_app/first_page.dart';
-import 'package:easy_app/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
