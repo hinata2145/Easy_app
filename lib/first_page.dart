@@ -12,69 +12,66 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(top: 480),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                child: CommonButton(
-                  text: '新規登録',
-                  onpressed: () {
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              child: CommonButton(
+                text: '新規登録',
+                onpressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignupPage()),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 36,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 36),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 14),
+                    child: Text(
+                      'アカウントをお持ちの方',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            RichText(
+              text: TextSpan(
+                text: "ログイン",
+                style: const TextStyle(color: Colors.blue, fontSize: 16),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SignupPage()),
+                          builder: (context) => const LoginPage()),
                     );
                   },
-                ),
               ),
-              const SizedBox(
-                height: 36,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 36),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 14),
-                      child: Text(
-                        'アカウントをお持ちの方',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-              RichText(
-                text: TextSpan(
-                  text: "ログイン",
-                  style: const TextStyle(color: Colors.blue, fontSize: 16),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                      );
-                    },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
