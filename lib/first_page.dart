@@ -60,7 +60,7 @@ class FirstPage extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: "ログイン",
-                style: const TextStyle(color: Colors.blue, fontSize: 16),
+                style: const TextStyle(color: Colors.blue, fontSize: 14),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
                     Navigator.push(
