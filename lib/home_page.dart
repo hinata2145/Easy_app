@@ -13,56 +13,205 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      drawer: const Drawer(),
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment(1, -0.8),
-            child: IconButton(
-              icon: const Icon(
-                Icons.close,
-                color: Colors.black,
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        drawer: const Drawer(),
+        body: Stack(
+          children: [
+            Container(
+              //color: Colors.red,
+              margin: EdgeInsets.all(36),
+              width: 358,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              _scaffoldKey.currentState!.openDrawer();
+                            },
+                            icon: const Icon(Icons.menu),
+                            iconSize: 28,
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 1),
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.close,
+                            color: Colors.black,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 16, bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '1月31日',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(right: 16),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isChecked = !isChecked;
+                                  });
+                                },
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        isChecked ? Colors.blue : Colors.white,
+                                    border: Border.all(color: Colors.black),
+                                  ),
+                                  child: isChecked
+                                      ? const Icon(Icons.check,
+                                          color: Colors.white)
+                                      : const Icon(Icons.check,
+                                          color: Colors.transparent),
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  '課題を終わらす',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                    text: '削除',
+                                    style: const TextStyle(
+                                        color: Colors.black, fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 16, bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '1月31日',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(right: 16),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isChecked = !isChecked;
+                                  });
+                                },
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        isChecked ? Colors.blue : Colors.white,
+                                    border: Border.all(color: Colors.black),
+                                  ),
+                                  child: isChecked
+                                      ? const Icon(Icons.check,
+                                          color: Colors.white)
+                                      : const Icon(Icons.check,
+                                          color: Colors.transparent),
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  '課題を終わらす',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                    text: '削除',
+                                    style: const TextStyle(
+                                        color: Colors.black, fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 16, bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '1月31日',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(height: 28),
+                        Center(
+                          child: Text('本日はまだタスクなし'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 10),
+                        height: 56,
+                        width: 300,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: '今日のタスクを記入',
+                            suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.edit),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 80),
-            child: IconButton(
-              onPressed: () {
-                _scaffoldKey.currentState!.openDrawer();
-              },
-              icon: Icon(Icons.menu),
-              iconSize: 40,
-            ),
-          ),
-          Align(
-            alignment: Alignment(-0.8, -0.6),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isChecked = !isChecked;
-                });
-              },
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: isChecked ? Colors.blue : Colors.white,
-                  border: Border.all(color: Colors.black),
-                ),
-                child: isChecked
-                    ? Icon(Icons.check, color: Colors.white)
-                    : Icon(Icons.check, color: Colors.transparent),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
