@@ -16,7 +16,43 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: const Drawer(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              ListTile(
+                title: Text('通知設定'),
+                onTap: () {
+                  // 通知設定に関する処理を追加
+                },
+              ),
+              ListTile(
+                title: Text('ログアウト'),
+                onTap: () {
+                  // ログアウトに関する処理を追加
+                },
+              ),
+              ListTile(
+                title: Text('プライバシーポリシー'),
+                onTap: () {
+                  // プライバシーポリシーに関する処理を追加
+                },
+              ),
+              ListTile(
+                title: Text('利用規約'),
+                onTap: () {
+                  // 利用規約に関する処理を追加
+                },
+              ),
+              ListTile(
+                title: Text('お問い合わせ'),
+                onTap: () {
+                  // お問い合わせに関する処理を追加
+                },
+              ),
+            ],
+          ),
+        ),
         body: Stack(
           children: [
             Container(
