@@ -1,13 +1,14 @@
+import 'package:easy_app/component/memo_contents.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isChecked = false;
 
@@ -22,33 +23,23 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               ListTile(
                 title: Text('通知設定'),
-                onTap: () {
-                  // 通知設定に関する処理を追加
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: Text('ログアウト'),
-                onTap: () {
-                  // ログアウトに関する処理を追加
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: Text('プライバシーポリシー'),
-                onTap: () {
-                  // プライバシーポリシーに関する処理を追加
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: Text('利用規約'),
-                onTap: () {
-                  // 利用規約に関する処理を追加
-                },
+                onTap: () {},
               ),
               ListTile(
                 title: Text('お問い合わせ'),
-                onTap: () {
-                  // お問い合わせに関する処理を追加
-                },
+                onTap: () {},
               ),
             ],
           ),
@@ -89,129 +80,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+                  MemoContents(),
                   Container(
                     padding: EdgeInsets.only(top: 16, bottom: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '1月31日',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 16),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isChecked = !isChecked;
-                                  });
-                                },
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color:
-                                        isChecked ? Colors.blue : Colors.white,
-                                    border: Border.all(color: Colors.black),
-                                  ),
-                                  child: isChecked
-                                      ? const Icon(Icons.check,
-                                          color: Colors.white)
-                                      : const Icon(Icons.check,
-                                          color: Colors.transparent),
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  '課題を終わらす',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    text: '削除',
-                                    style: const TextStyle(
-                                        color: Colors.black, fontSize: 12),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 16, bottom: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '1月31日',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 16),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isChecked = !isChecked;
-                                  });
-                                },
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color:
-                                        isChecked ? Colors.blue : Colors.white,
-                                    border: Border.all(color: Colors.black),
-                                  ),
-                                  child: isChecked
-                                      ? const Icon(Icons.check,
-                                          color: Colors.white)
-                                      : const Icon(Icons.check,
-                                          color: Colors.transparent),
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  '課題を終わらす',
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    text: '削除',
-                                    style: const TextStyle(
-                                        color: Colors.black, fontSize: 12),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 16, bottom: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '1月31日',
+                          '2月2日',
                           style: TextStyle(fontSize: 12),
                         ),
                         SizedBox(height: 28),
