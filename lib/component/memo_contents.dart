@@ -13,19 +13,19 @@ class _MemoContentsState extends State<MemoContents> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 16, bottom: 16),
+      padding: const EdgeInsets.only(top: 16, bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             '1月31日',
             style: TextStyle(fontSize: 12),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             children: [
               Container(
-                margin: EdgeInsets.only(right: 16),
+                margin: const EdgeInsets.only(right: 16),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
@@ -54,9 +54,9 @@ class _MemoContentsState extends State<MemoContents> {
                     style: TextStyle(fontSize: 16),
                   ),
                   RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: '削除する',
-                      style: const TextStyle(color: Colors.black, fontSize: 12),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     ),
                   ),
                 ],

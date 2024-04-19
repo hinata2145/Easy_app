@@ -15,110 +15,127 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("ログイン"),
       ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.only(top: 40),
-          child: Column(
-            children: [
-              SizedBox(
-                  height: 60,
-                  width: 340,
-                  child: SignInButton(
-                    Buttons.google,
-                    text: "Googleで続行",
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    onPressed: () {},
-                  )),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 60,
-                width: 340,
-                child: SignInButton(
-                  Buttons.apple,
-                  text: "Appleで続行",
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  onPressed: () {},
-                ),
-              ),
-              const SizedBox(height: 48),
-              Column(
+      body: ListView(
+        children: [
+          Center(
+            child: Container(
+              margin: const EdgeInsets.only(top: 40),
+              child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 36),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 1,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 14),
-                          child: Text(
-                            'or',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: 1,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
+                  SizedBox(
+                      height: 60,
+                      width: 340,
+                      child: SignInButton(
+                        Buttons.google,
+                        text: "Googleで続行",
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        onPressed: () {},
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 60,
+                    width: 340,
+                    child: SignInButton(
+                      Buttons.apple,
+                      text: "Appleで続行",
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      onPressed: () {},
                     ),
                   ),
+                  const SizedBox(height: 48),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 48),
-                      const Text('メールアドレス'),
-                      const SizedBox(height: 12),
-                      const InputForm(),
-                      const SizedBox(height: 12),
-                      const Text('パスワード'),
-                      const SizedBox(height: 12),
-                      const InputForm(),
-                      const SizedBox(height: 60),
-                      CommonButton(
-                        text: 'ログイン',
-                        onpressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>  HomePage()),
-                          );
-                        },
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 36),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 14),
+                              child: Text(
+                                'or',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        height: 32,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 48),
+                          const Text('メールアドレス'),
+                          const SizedBox(height: 12),
+                          const InputForm(),
+                          const SizedBox(height: 12),
+                          const Text('パスワード'),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            height: 50,
+                            width: 340,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    icon: const Icon(Icons.visibility_off),
+                                    onPressed: () {},
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          const SizedBox(height: 60),
+                          CommonButton(
+                            text: 'ログイン',
+                            onpressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            height: 32,
+                          ),
+                        ],
                       ),
                     ],
                   ),
+                  RichText(
+                    text: TextSpan(
+                      text: "パスワードの再設定",
+                      style: const TextStyle(color: Colors.blue, fontSize: 16),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ResettingPass()),
+                          );
+                        },
+                    ),
+                  ),
                 ],
               ),
-              RichText(
-                text: TextSpan(
-                  text: "パスワードの再設定",
-                  style: const TextStyle(color: Colors.blue, fontSize: 16),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ResettingPass()),
-                      );
-                    },
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget {
               SizedBox(height: 12),
               InputForm(),
               SizedBox(height: 80),
-              CommonButton(text: '新規登録'),
+              CommonButton(text: '送信'),
             ],
           ),
         ),
